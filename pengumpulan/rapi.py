@@ -1,6 +1,5 @@
 from datetime import datetime
 
-# Daftar menu makanan dan harganya
 menu_makanan = {
     "Nasi Goreng": 15000,
     "Mie Goreng": 12000,
@@ -9,10 +8,8 @@ menu_makanan = {
     "Es Teh": 5000
 }
 
-# Riwayat pembelian makanan
 riwayat_pembelian = []
 
-# Fungsi untuk menampilkan menu utama
 def tampilkan_menu():
     print("\nSelamat datang di Restoran Sederhana")
     print("1. Beli Makanan")
@@ -25,13 +22,11 @@ def tampilkan_menu():
     print("8. Tampilkan Statistik")
     print("9. Keluar")
 
-# Fungsi untuk menampilkan menu makanan
 def tampilkan_menu_makanan():
     print("\nMenu Makanan:")
     for i, (makanan, harga) in enumerate(menu_makanan.items(), start=1):
         print(f"{i}. {makanan} - Rp {harga}")
 
-# Fungsi untuk membeli makanan
 def beli_makanan():
     tampilkan_menu_makanan()
     pilihan = int(input("Silakan pilih makanan: "))
@@ -56,7 +51,6 @@ def beli_makanan():
     else:
         print("Pilihan tidak valid, silakan pilih makanan yang tersedia.")
 
-# Fungsi untuk menampilkan riwayat pembelian
 def tampilkan_riwayat_pembelian():
     print("\nRiwayat Pembelian:")
     for pembelian in riwayat_pembelian:
@@ -64,7 +58,6 @@ def tampilkan_riwayat_pembelian():
         tanda_pembayaran = "Sudah Dibayar" if status_pembayaran == "Sudah Dibayar" else "Belum Dibayar"
         print(f"Makanan: {pembelian['Makanan']}, Jumlah: {pembelian['Jumlah']} porsi, Total Harga: Rp {pembelian['Total Harga']} - {tanda_pembayaran}")
 
-# Fungsi untuk memperbarui pembelian
 def update_pembelian():
     tampilkan_riwayat_pembelian()
     if riwayat_pembelian:
@@ -84,7 +77,6 @@ def update_pembelian():
     else:
         print("Belum ada riwayat pembelian.")
 
-# Fungsi untuk menghapus pembelian
 def hapus_pembelian():
     tampilkan_riwayat_pembelian()
     if riwayat_pembelian:
@@ -100,7 +92,6 @@ def hapus_pembelian():
     else:
         print("Belum ada riwayat pembelian.")
 
-# Fungsi untuk membayar
 def bayar():
     tampilkan_riwayat_pembelian()
 
@@ -138,7 +129,6 @@ def bayar():
     else:
         print("Belum ada riwayat pembelian.")
 
-# Fungsi untuk mencari riwayat pembelian berdasarkan tanggal
 def cari_riwayat_pembelian():
     tanggal = input("Masukkan tanggal pembelian (YYYY-MM-DD): ")
     hasil_pencarian = [pembelian for pembelian in riwayat_pembelian if pembelian.get("Tanggal") == tanggal]
@@ -150,7 +140,6 @@ def cari_riwayat_pembelian():
     else:
         print(f"Tidak ditemukan pembelian pada tanggal {tanggal}.")
 
-# Fungsi untuk menampilkan statistik pembelian
 def tampilkan_statistik():
     paid_purchases = [pembelian for pembelian in riwayat_pembelian if pembelian.get("Status Pembayaran") == "Sudah Dibayar"]
 
@@ -166,7 +155,6 @@ def tampilkan_statistik():
     else:
         print("Belum ada pembelian yang dibayar.")
 
-# Program utama
 while True:
     tampilkan_menu()
     pilihan_menu = int(input("Silakan pilih menu: "))
