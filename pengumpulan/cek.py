@@ -1,0 +1,1 @@
+print("au ah males pen beli truck")
